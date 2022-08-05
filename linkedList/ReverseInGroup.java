@@ -9,11 +9,10 @@ class Node
 	this.next=null;
 	}
 }
-public class IterativeReverse {
-	
+public class ReverseInGroup {
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		
 		Node head = new Node(1);
 		head.next = new Node(2);
 		head.next.next = new Node(3);
@@ -22,21 +21,32 @@ public class IterativeReverse {
 		head.next.next.next.next.next = new Node(5);
 		head.next.next.next.next.next.next = new Node(6);
 		head.next.next.next.next.next.next.next = new Node(7);
-	 head=reverse(head);
-	printList(head);
-		
+		int k=3;
+	 head=reverseGroup(head,k);
+	 printList(head);
 	}
-	public static Node reverse(Node head)
+	public static Node reverseGroup(Node head,int k)
 	{
-		Node prev=null,curr=head;
+		Node prevFirst=null,curr=head,newHead=null;
 		while(curr!=null)
+		{
+		int count=0;
+		Node prev=null,first=curr;
+		while(curr!=null&&count<k)
 		{
 			Node temp=curr.next;
 			curr.next=prev;
 			prev=curr;
 			curr=temp;
+			count++;
 		}
-		return prev;
+		if(newHead==null)
+			newHead=prev;
+		else
+		prevFirst.next=prev;
+		prevFirst=first;
+		}
+		return newHead;
 	}
 	public static void printList(Node head)
 	{
@@ -47,4 +57,5 @@ public class IterativeReverse {
 			temp=temp.next;
 		}
 	}
+
 }
