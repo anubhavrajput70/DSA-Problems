@@ -1,6 +1,5 @@
 package linkedList;
 
-import linkedList.ReverseInGroup.Node;
 
 public class CheckPalindrome {
 	static class Node
@@ -29,7 +28,7 @@ public class CheckPalindrome {
 	static boolean palindrome(Node head)
 	{	
 		Node mid=middle(head);
-		Node right=reverse(mid.next);
+		Node right=reverse(mid);
 		Node left=head;
 		while(right!=null)
 		{
