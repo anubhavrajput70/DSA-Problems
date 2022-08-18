@@ -30,13 +30,7 @@ public class ReverseStringWords {
 	                }
 	                l=i+1;
 	            }
-	          
 	        }
-	        String a="";
-	        for(int i=0;i<ch.length;i++)
-	        {
-	            a=a+ch[i];
-	        }
-	        return a;
+	        return new String(ch);
 	    }
 }
